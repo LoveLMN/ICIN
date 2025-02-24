@@ -57,9 +57,9 @@ def main():
     args = set_args()
     os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
     os.environ["CUDA_VISIBLE_DEVICES"] = args.device
-    # 检查 CUDA 是否可用
+
     if not torch.cuda.is_available():
-        print("CUDA 不可用，程序停止运行")
+        print("CUDA is unavailable, the program has stopped running.")
         sys.exit(1)
 
     device = torch.device("cuda" if torch.cuda.is_available() and int(args.device) >= 0 else "cpu")
