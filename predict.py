@@ -64,7 +64,7 @@ def predict(args, model, device, data, processor, pre = None):
 
 def set_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--device', default='0', type=str, help='device number')
+    parser.add_argument('--device', default='1', type=str, help='device number')
     parser.add_argument('--max_len', type=int, default=77, help='max length of text')
     parser.add_argument('--text_size', default=512, type=int, help='text hidden size')
     parser.add_argument('--image_size', default=768, type=int, help='image hidden size')
@@ -87,7 +87,7 @@ def main():
 
     processor = CLIPProcessor.from_pretrained(" ", local_files_only=True)
     # processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
-    model = MV_CLIP_new(args)
+    model = ICIN(args)
 
     test_data = MyDataset(mode='test', text_name=args.text_name, limit=None)
 
